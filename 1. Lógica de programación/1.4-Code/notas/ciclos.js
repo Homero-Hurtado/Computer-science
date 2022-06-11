@@ -72,5 +72,5 @@ console.log(arr[0]); //10
 console.log(arr[4]); //40
 console.log(arr[8]); //100
 console.log(student.name)//nombre del estudiante
-console.log(arr.[7].name);//data
+console.log(arr[7].name);//data
 console.log(student.calificaciones[1]);//Calificacopn de 8 del estudiante
