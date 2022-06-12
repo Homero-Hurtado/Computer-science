@@ -1,18 +1,21 @@
 var matrizA = [
-    [2, 4, 1],
-    [3, 9, 3],
-    [5, 8, 1],
+    [1, 6, 0],
+    [-1, 3, 1],
+    [4, 6, 2],
 ];
+
 var matrizB = [
-    [1, 0, 1],
-    [1, 2, 1],
-    [1, 1, 0],
+    [0, 4, 0],
+    [2, 3, 1],
+    [1, -2, 1],
 ];
+
 var matrizC = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0],
 ];
+
 var matrizD = [
     [0, 0, 0],
     [0, 0, 0],
@@ -24,7 +27,6 @@ var matrizE = [
     [0, 0, 0],
     [0, 0, 0],
 ];
-
 
 
 for(var i = 0; i < matrizA.length; i++){
@@ -71,3 +73,26 @@ for(var i = 0; i < matrizA.length; i++){
 console.log("matrizD:(resta) ", matrizD);
 
 
+//MULTIPLICACION
+
+// /**
+//  * REGLAS DE LA MULTIPLICACION DE MATRICES
+//  * matrizE[filasMatrizA][columnasMatrizB]
+//  * Solo se puede multiplicar matrizA y matrizB si columnasMatrizA === filasMatrizB
+//  * matrizE[i][j] = ( matrizA[0][0] * matrizB[0][0] ) + ( matrizA[0][1] * matrizB[1][0] ) + ( matrizA[0][2] * matrizB[2][0] )  
+//  */
+
+console.log("matrizA: ", matrizA);
+console.log("matrizB: ", matrizB);
+for(var i = 0; i < matrizA.length; i++){
+    for(var j = 0; j < matrizA.length; j++){
+       // matrizE[i][j] = matrizE[i][j]+ (matrizA[i][j] * matrizB[i][j]);
+       // matrizE[i][j] = matrizE[i][j]+ (matrizA[i][j] * matrizB[i][j]);
+       // matrizE[0][0] = matrizE[0][0] + matrizA[0][0] + matrizB[0][0]
+       // matrizE[0][1] = matrizE[0][1] + matrizA[0][1] + matrizB[0][1]
+        for (var aux = 0; aux < matrizA.length; aux++) {
+        matrizE[i][j] = matrizE[i][j] + ( matrizA[i][aux] * matrizB[aux][j]);
+        }
+    }
+}
+console.log("matrizeE: ", matrizE);
