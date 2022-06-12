@@ -42,6 +42,8 @@ do{
     // Razon de cambio
     k++;
     } while(k<=20)
+    
+     //La instruccion estaba antes de hacer la comparacion, por eso imprimio todas laveces, tanto cuando era par como cuando era impar
 
 //Inicio
 var posicion = 0;
