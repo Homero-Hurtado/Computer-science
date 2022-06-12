@@ -69,3 +69,5 @@ for(var i = 0; i < matrizA.length; i++){
 
 }
 console.log("matrizD:(resta) ", matrizD);
+
+
