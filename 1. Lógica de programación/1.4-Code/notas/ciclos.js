@@ -34,6 +34,14 @@ for(var j= 0; j <=20; j++){
 }
 
 //Inicio
+var posicion = 0;
+var arr = [0, 2, 4, 6, 8, 10];
+do{
+    console.log('numero:', arr[posicion]);
+    posicion++;
+}while(posicion < arr.length && valor !==0)
+
+//Inicio
 var k=0;
 do{
     if(k % 2 === 0 && k !== 18){
@@ -42,13 +50,6 @@ do{
     // Razon de cambio
     k++;
     } while(k<=20)
-    
+
      //La instruccion estaba antes de hacer la comparacion, por eso imprimio todas laveces, tanto cuando era par como cuando era impar
 
-//Inicio
-var posicion = 0;
-var arr = [0, 2, 4, 6, 8, 10];
-do{
-    console.log('numero:', arr[posicion]);
-    posicion++;
-}while(posicion < arr.length && valor !==0)
