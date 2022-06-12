@@ -51,5 +51,5 @@ do{
     k++;
     } while(k<=20)
 
-     //La instruccion estaba antes de hacer la comparacion, por eso imprimio todas laveces, tanto cuando era par como cuando era impar
+    //La instruccion estaba antes de hacer la comparacion, por eso imprimio todas laveces, tanto cuando era par como cuando era impar
 
