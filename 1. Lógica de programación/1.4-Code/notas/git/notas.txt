@@ -1,0 +1,21 @@
+GIT LOCAL  (WORKING DIRECTORY)
+
+git status // estado del repositorio
+git add . // agragar al estado de preparacion (staged area)
+git branch //Detectar rama actual
+touch ejemplo2.txt // crear nuevo archivo
+git restore --staged ejemplo.txt // quitar el archvo del estado de preparacion(staged)
+git commit -m "comment" //agregar al repositorio
+git log //historial de los cambios realizados
+git log --oneline // muestra historial simplificado
+git branch -D nombreRama // Eliminar Rama
+
+GIT REMOTO (repositorio local)
+
+git remote -v //comprobar remotos
+git push origin rama //subir cambios
+git pull origin rama //bajar cambios
+git fetch && git checkout origin newRama // Descargar una nueva rama y pasar a esa nueva rama
+
+
+
