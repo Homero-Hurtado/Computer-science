@@ -13,3 +13,22 @@ for (let i = 0; i < numeros.length; i++) {
     }
     console.log(numeros[i]);
 }
+
+//Break y continue no se pueden usar con map y forEach
+
+
+numeros.map(element => {
+    if (element >= 40) {
+        break; //Rompe la ejecución de un ciclo
+    }
+    ocnsole.log(element);
+}); 
+
+
+
+numeros.forEach(element => {
+    if (element >= 40) {
+        break; //Rompe la ejecución de un ciclo
+    }
+    ocnsole.log(element);
+}) ;
