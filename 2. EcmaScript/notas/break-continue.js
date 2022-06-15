@@ -19,7 +19,7 @@ for (let i = 0; i < numeros.length; i++) {
 
 numeros.map(element => {
     if (element >= 40) {
-        break; //Rompe la ejecución de un ciclo
+        //break; //Rompe la ejecución de un ciclo
     }
     ocnsole.log(element);
 }); 
@@ -28,7 +28,7 @@ numeros.map(element => {
 
 numeros.forEach(element => {
     if (element >= 40) {
-        break; //Rompe la ejecución de un ciclo
+        //break; //Rompe la ejecución de un ciclo
     }
     ocnsole.log(element);
 }) ;
