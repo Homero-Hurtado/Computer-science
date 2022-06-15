@@ -26,8 +26,8 @@ if(true){
   console.log('Dentro del if ' +numero);
 }
 console.log(numero);
-*/
 
+*/
 
 // const numeros; // da un error ya que const no se puede solo declarar, debe inicializarse
 const numeros = [55, 111, 10];
@@ -47,5 +47,12 @@ console.log(numeros);
 // console.log(suma(10, 20));
 // const suma = (num1, num2) => {
 //   return num1 + num2;
+// }
+
+// Esto genera un error ReferenceError: Cannot access 'suma' before initialization
+//debido a que las funciones flechas no realizan hoisting
+// console.log(suma(10,20));
+// const suma = (num1, num2) =>{
+//   return num1+ num2;
 // }
 
