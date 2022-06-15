@@ -2,8 +2,8 @@
 // getElementById
 // getElementByClassName
 // getElementByTagName
-const ulElement = document.querySelector('#list-languages');
-const formElement = document.querySelector('#language-form');
+const ulElement = document.querySelector('#list-languages'); //(querrySelector)Herramienta de la web api
+const formElement = document.querySelector('#language-form'); //Obtener un objeto de HTML
 let languages = [];
 // id => #
 // class => .
