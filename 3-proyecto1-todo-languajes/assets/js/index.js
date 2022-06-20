@@ -2,6 +2,8 @@
 // getElementById
 // getElementByClassName
 // getElementByTagName
+
+//Obtencion de elementos HTML
 const ulElement = document.querySelector('#list-languages'); //(querrySelector)Herramienta de la web api
 const formElement = document.querySelector('#language-form'); //Obtener un objeto de HTML
 let languages = [];
@@ -10,12 +12,13 @@ let languages = [];
 // tag => nameTag
 
 formElement.addEventListener('submit', (event) => {
+
     // evitar que el formulario se envie por defecto
     event.preventDefault();
 
     // obtener los elementos html
     const languageInputElement = event.target.languageElement;
-    const radiosNodeList = event.target.statusRadioElement;
+    const radiosNodeList = event.target.statusRadioElement; 
     const statusElement = Array.from(radiosNodeList).find(element => element.checked);
 
     // obtener los value de los elementos html
@@ -40,18 +43,22 @@ const renderElementList = () => {
     const divElement = document.createElement('div');
     const iElement = document.createElement('i');
     const buttonElement = document.createElement('button');
+
     // agregar las clases css a los elementos 
     liElement.classList.add('list-group-item', 'd-flex', 'justify-content-between');
+    
     // agregar tipo de icono
     setIconType();
     buttonElement.classList.add('bi', 'bi-trash3-fill', 'text-danger');
     buttonElement.setAttribute('type', 'submit');
     buttonElement.setAttribute('index', '0');
+
     // agregar texto a un elemento
     liElement.innerHTML = 'Lenguaje ejemplo';
+
     // agregar al html
-    ulElement.appendChild(liElement);
-    liElement.appendChild(divElement);
+    ulElement.appendChild(liElement); //Agrega elementos de hijo a padre ( Agrega elemento li a ul)
+    liElement.appendChild(divElement); 
     divElement.appendChild(iElement);
     divElement.appendChild(buttonElement);
 };
