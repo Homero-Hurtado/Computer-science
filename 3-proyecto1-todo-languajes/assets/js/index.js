@@ -2,33 +2,43 @@
 // getElementById
 // getElementByClassName
 // getElementByTagName
-const ulElement = document.querySelector('#list-languages');
-const formElement = document.querySelector('#language-form');
+const STATUS = {
+    STAND_BY: 'standBy',
+    START: 'start',
+    FINISHED:'finished'
+
+};
+const ulElement = document.querySelector('#list-languages'); // obteenr elemento de la lista
+const formElement = document.querySelector('#language-form'); //obtener el formlario
 let languages = [];
 // id => #
 // class => .
 // tag => nameTag
 
-formElement.addEventListener('submit', (event) => {
+formElement.addEventListener('submit', (event) => {  //Obtener los datos y agregarlos al arreglo
+
     // evitar que el formulario se envie por defecto
-    event.preventDefault();
+
+    event.preventDefault(); // Para que no se recargue el formulario
 
     // obtener los elementos html
-    const languageInputElement = event.target.languageElement;
-    const radiosNodeList = event.target.statusRadioElement;
-    const statusElement = Array.from(radiosNodeList).find(element => element.checked);
 
-    // obtener los value de los elementos html
+    const languageInputElement = event.target.languageElement; // guardar elemento input
+    const radiosNodeList = event.target.statusRadioElement;
+    const statusElement = Array.from(radiosNodeList).find(element => element.checked); // conversion de nodelist a un array
+
+    // obtener los value de los elementos html y guardarlos en variables
+
     const languageText = languageInputElement.value;
     const statusText = statusElement.value;
 
-    const language = {
-        description: languageText,
-        status: statusText,
-    };
+    // Creacion de objeto
+
+    const language = { description: languageText, status: statusText, };
+
     languages.push(language);
-    cleanView();
-    renderListLanguages(languages);
+    cleanView(); //limpiar contenido de ulElement
+    renderListLanguages(languages); //ForEach line 42
 });
 
 const cleanView = () => {
@@ -40,9 +50,9 @@ const renderListLanguages = (languages) => {
 };
 
 
-const renderElementList = (element, index) => {
+const renderElementList = (element, index) => { // iterrar la llamada a la funcion 
 
-    // creación de los elementos HTML
+    // creación de los elementos HTML,agregar clases y atributos
 
     const liElement = document.createElement('li');
     const divElement = document.createElement('div');
@@ -55,16 +65,17 @@ const renderElementList = (element, index) => {
 
     // agregar tipo de icono
 
-    setIconType();
+    setIconType(iElement, element.status);
+
     buttonElement.classList.add('bi', 'bi-trash3-fill', 'text-danger');
     buttonElement.setAttribute('type', 'submit');
-    buttonElement.setAttribute('index', 'index');
+    buttonElement.setAttribute('index', index);
 
     // agregar texto a un elemento
 
     liElement.innerHTML = element.description;
 
-    // agregar al html
+    // agregar al html, para mostrarlos en la pnatalla
 
     ulElement.appendChild(liElement);
     liElement.appendChild(divElement);
@@ -72,7 +83,19 @@ const renderElementList = (element, index) => {
     divElement.appendChild(buttonElement);
 };
 
-const setIconType = () => {
+const setIconType = (iElement, status) => {
+const{STAND_BY, START, FINISHED} = STATUS;
+    iElement.classList.add('bi', 'bi-pause-circle-fill');
+    if (status === STAND_BY) {
+        iElement.classList.add('text-warning');
+
+    } else if (status === START) {
+        iElement.classList.add('text-primary');
+
+    } else if (status === FINISHED) {
+        iElement.classList.add('text-success');
+
+    }
 
 };
 
