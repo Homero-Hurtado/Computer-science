@@ -2,23 +2,20 @@
 // getElementById
 // getElementByClassName
 // getElementByTagName
-
-//Obtencion de elementos HTML
-const ulElement = document.querySelector('#list-languages'); //(querrySelector)Herramienta de la web api
-const formElement = document.querySelector('#language-form'); //Obtener un objeto de HTML
+const ulElement = document.querySelector('#list-languages');
+const formElement = document.querySelector('#language-form');
 let languages = [];
 // id => #
 // class => .
 // tag => nameTag
 
 formElement.addEventListener('submit', (event) => {
-
     // evitar que el formulario se envie por defecto
     event.preventDefault();
 
     // obtener los elementos html
     const languageInputElement = event.target.languageElement;
-    const radiosNodeList = event.target.statusRadioElement; 
+    const radiosNodeList = event.target.statusRadioElement;
     const statusElement = Array.from(radiosNodeList).find(element => element.checked);
 
     // obtener los value de los elementos html
@@ -30,35 +27,47 @@ formElement.addEventListener('submit', (event) => {
         status: statusText,
     };
     languages.push(language);
+    cleanView();
     renderListLanguages(languages);
 });
+
+const cleanView = () => {
+    ulElement.innerHTML = '';
+};
 
 const renderListLanguages = (languages) => {
     languages.forEach(renderElementList);
 };
 
-const renderElementList = () => {
+
+const renderElementList = (element, index) => {
+
     // creación de los elementos HTML
+
     const liElement = document.createElement('li');
     const divElement = document.createElement('div');
     const iElement = document.createElement('i');
     const buttonElement = document.createElement('button');
 
     // agregar las clases css a los elementos 
+
     liElement.classList.add('list-group-item', 'd-flex', 'justify-content-between');
-    
+
     // agregar tipo de icono
+
     setIconType();
     buttonElement.classList.add('bi', 'bi-trash3-fill', 'text-danger');
     buttonElement.setAttribute('type', 'submit');
-    buttonElement.setAttribute('index', '0');
+    buttonElement.setAttribute('index', 'index');
 
     // agregar texto a un elemento
-    liElement.innerHTML = 'Lenguaje ejemplo';
+
+    liElement.innerHTML = element.description;
 
     // agregar al html
-    ulElement.appendChild(liElement); //Agrega elementos de hijo a padre ( Agrega elemento li a ul)
-    liElement.appendChild(divElement); 
+
+    ulElement.appendChild(liElement);
+    liElement.appendChild(divElement);
     divElement.appendChild(iElement);
     divElement.appendChild(buttonElement);
 };
