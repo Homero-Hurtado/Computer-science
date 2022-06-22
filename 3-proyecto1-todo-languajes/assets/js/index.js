@@ -26,11 +26,16 @@ formElement.addEventListener('submit', (event) => {  //Obtener los datos y agreg
     const languageInputElement = event.target.languageElement; // guardar elemento input
     const radiosNodeList = event.target.statusRadioElement;
     const statusElement = Array.from(radiosNodeList).find(element => element.checked); // conversion de nodelist a un array
+    debugger
+    if(languageInputElement?.value || !statusElement?.value){
+        return;
+    }
 
-    // obtener los value de los elementos html y guardarlos en variables
-
+// obtener los value de los elementos html y guardarlos en variables
     const languageText = languageInputElement.value;
     const statusText = statusElement.value;
+
+
 
     // Creacion de objeto
 
