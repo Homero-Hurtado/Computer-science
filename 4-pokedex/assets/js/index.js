@@ -1,8 +1,8 @@
+const mainDiv = document.querySelector('#container-pokemons');
 const NOT_IMAGE_TEXT = 'la imagen del pokemon';
-let pokemons = [];
+let globalPokemons = [];
 
 const getPokemons = async () => {
-    console.log('paso 2');
     //fetch(‘https://pokeapi.co/api/v2/pokemon/ditto’)
     //.then(response => response.json())
     //.then(data => console.log(data));
@@ -19,12 +19,10 @@ const getPokemons = async () => {
 const normalizePokemonData = (name, imgResponseJson) => {
     const img = imgResponseJson?.sprites?.other['oficial-artwork']?.front_default || '';
     const pokemon = {name: name, img: img};
-    pokemons.push(pokemon);
+    globalPokemons.push(pokemon);
 };
 
 const renderCardPokemon = (element, index) => {
-
-    console.log('element: ', element, index);
 
     const cardPokemonDiv = document.createElement('div');
     const pokemonImg = document.createElement('img');
@@ -36,9 +34,7 @@ const renderCardPokemon = (element, index) => {
     pokemonImg.setAttribute('src', element.img);
     pokemonImg.setAttribute('alt', NOT_IMAGE_TEXT);
 
-    const mainDiv = document.querySelector('#container-pokemons');
     mainDiv.appendChild(cardPokemonDiv);
-    
     cardPokemonDiv.appendChild(pokemonImg);
     cardPokemonDiv.appendChild(brElement);
     cardPokemonDiv.appendChild(pokemonNameSpan);
@@ -47,16 +43,24 @@ const renderCardPokemon = (element, index) => {
 }
 
 const renderPokemons = (pokemons) => {
-    console.log('5 pokemons =>', pokemons );
     pokemons.forEach(renderCardPokemon);
 }
 
+//1 Funcion convencional en JS
 async function main(){
-    console.log('paso 1');
     await getPokemons();
-    console.log('paso 3');
-    console.log('4 pokemons =>', pokemons);
-    renderPokemons(pokemons);
-    console.log('paso 6');
+    renderPokemons(globalPokemons);
 }
 main();
+
+//2 Forma de funciones Arrow/Flecha
+// const main = async () => {
+//     await getPokemons();
+//     renderCardPokemons(pokemons);
+// }
+
+//3 IIFE
+// (async() => {
+//     await getPokemons();
+//     renderPokemons(pokemons);
+// })();
