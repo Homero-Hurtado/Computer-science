@@ -3,7 +3,7 @@ const searchElement = document.querySelector('#search');
 const NOT_IMAGE_TEXT = 'la imagen del pokemon';
 let globalPokemons = [];
 
-const cleanView = () =>{
+const cleanView = () => {
     mainDiv.innerHTML = '';
 }
 const searchWithFilter = (searchingText) => {
@@ -18,17 +18,17 @@ const searchWithFilter = (searchingText) => {
 
 searchElement.addEventListener('keyup', (event) => {
     const inputText = event?.target?.value || '';
-    let pokemonGlobal2 = [...globalPokemons]; // globalPokemons.slice(0, globalPokemons.length)
-    globalPokemons =searchWithFilter(inputText);
+    let pokemonsGlobal2 = [...globalPokemons]; // globalPokemons.slice(0, globalPokemons.length)
+    pokemonsGlobal2 =searchWithFilter(inputText);
     cleanView();
-    renderPokemons(pokemonGlobal2); 
+    renderPokemons(pokemonsGlobal2); 
 })
 
 const getPokemons = async () => {
     //fetch(‘https://pokeapi.co/api/v2/pokemon/ditto’)
     //.then(response => response.json())
     //.then(data => console.log(data));
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/')
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
     //const response = await fetch('./assets/kanto.json');
     const responseJson = await response.json();
     const pokemons = responseJson.results;
@@ -45,14 +45,14 @@ const normalizePokemonData = (name, imgResponseJson) => {
     globalPokemons.push(pokemon);
 };
 
-const renderCardPokemon = (element, index) => {
+const renderCardPokemon = (element) => {
 
     const cardPokemonDiv = document.createElement('div');
     const pokemonImg = document.createElement('img');
     const brElement = document.createElement('br');
     const pokemonNameSpan = document.createElement('span');
 
-    cardPokemonDiv.className = 'venter';
+    cardPokemonDiv.className = 'center';
     pokemonImg.className = 'icon-region';
     pokemonImg.setAttribute('src', element.img);
     pokemonImg.setAttribute('alt', NOT_IMAGE_TEXT);
@@ -76,14 +76,15 @@ async function main(){
 }
 main();
 
-//2 Forma de funciones Arrow/Flecha
+//2 Forma de funcion arrow/flecha
 // const main = async () => {
 //     await getPokemons();
-//     renderCardPokemons(pokemons);
+//     renderPokemons(pokemons);
 // }
+// main();
 
 //3 IIFE
 // (async() => {
 //     await getPokemons();
 //     renderPokemons(pokemons);
-// })();{}
+// })();

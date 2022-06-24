@@ -1,3 +1,15 @@
+//JSON => key: value{
+"person": {
+name: "jose m"
+}
+}
+
+//Objeto js => propiedad y valor
+const person = {
+name: "jose m"
+}
+
+POO => atributos y valor 
 ------------------------
 Person
 ------------------------
@@ -11,6 +23,32 @@ nadar()
 ------------------------
 
 
+
+
+Boolean
+String
+Array
+Objetos
+Numeros
+Numeros decimales
+
+
+// debilmente tipado (
+let numero = 10
+let numbero2 = 99.7
+numero = "este es un numero"
+
+// fuertemente tipado (JavaScript)
+int numero = 10;
+double numero2 = 99.7;
+numero = "este es un numero" // Error
+
+kotlin / Java
+
+Python, Go, C#
+
+C++, C
+
 ------------------------
 Superhumano
 ------------------------
@@ -19,15 +57,19 @@ tipo
 alias
 ------------------------
 volar()
+
 ------------------------
 
 
 ------------------------
-Panadero
+panadero
 ------------------------
 isComerciante
-hasMandil
+hasMAndil
 ------------------------
 cocina()
 hornear()
 ------------------------
+
+
+
