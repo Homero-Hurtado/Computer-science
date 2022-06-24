@@ -13,16 +13,15 @@ const searchWithFilter = (searchingText) => {
             return pokemon;
         }
     });
-    console.log('filteredPokemon', filteredPokemon)
     return filteredPokemon;
 }
 
 searchElement.addEventListener('keyup', (event) => {
     const inputText = event?.target?.value || '';
-    const pokemonGlobal2 = [...globalPokemons];
+    let pokemonGlobal2 = [...globalPokemons]; // globalPokemons.slice(0, globalPokemons.length)
     globalPokemons =searchWithFilter(inputText);
     cleanView();
-    renderPokemons(globalPokemons); 
+    renderPokemons(pokemonGlobal2); 
 })
 
 const getPokemons = async () => {
