@@ -1,6 +1,29 @@
 const mainDiv = document.querySelector('#container-pokemons');
+const searchElement = document.querySelector('#search');
 const NOT_IMAGE_TEXT = 'la imagen del pokemon';
 let globalPokemons = [];
+
+const cleanView = () =>{
+    mainDiv.innerHTML = '';
+}
+const searchWithFilter = (searchingText) => {
+    const filteredPokemon = globalPokemons.filter((pokemon) => {
+        const { name } = pokemon;
+        if(name.includes(searchingText)){
+            return pokemon;
+        }
+    });
+    console.log('filteredPokemon', filteredPokemon)
+    return filteredPokemon;
+}
+
+searchElement.addEventListener('keyup', (event) => {
+    const inputText = event?.target?.value || '';
+    const pokemonGlobal2 = [...globalPokemons];
+    globalPokemons =searchWithFilter(inputText);
+    cleanView();
+    renderPokemons(globalPokemons); 
+})
 
 const getPokemons = async () => {
     //fetch(‘https://pokeapi.co/api/v2/pokemon/ditto’)
@@ -64,4 +87,4 @@ main();
 // (async() => {
 //     await getPokemons();
 //     renderPokemons(pokemons);
-// })();
+// })();{}
