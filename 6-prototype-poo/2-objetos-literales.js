@@ -10,3 +10,8 @@ var mujerMaravilla = {
     alias: "mujer maravilla"
 };
 
+/**
+ * La sisntaxis de objetos literales permite crear objetos
+ * rapidamente, pero no es reutilizable ya que no funciona 
+ * como modelo o plantilla (clase)
+ */
