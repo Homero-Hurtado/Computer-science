@@ -1,10 +1,30 @@
+
+
+ function createPersona(name, altura, colorPiel){
+    this.name = name;
+    this.altura = altura;
+    this.alias = alias;
+    this.colorPiel = colorPiel;
+};
+
 function createSuperHumano(superpoder, tipo, alias){
     this.superpoder = superpoder;
     this.tipo = tipo;
     this.alias = alias;
+
 };
+
+function createPanadero(isComerciante, hasMAndil){
+    this.isComerciante = isComerciante;
+    this.hasMAndil = hasMAndil;
+};
+
+createSuperHumano.prototype.volar = () => {
+    console.log('volar');
+};
+
     const flash = new createSuperHumano("super velocidad", "super heroe", "flash");
-    const mujerMaravilla = createSuperHumano("super fuerza", "super heroe", "mujer maravilla" );
+    const mujerMaravilla = new createSuperHumano("super fuerza", "super heroe", "mujerMaravilla");
     console.log(flash);
     console.log(mujerMaravilla);
 
